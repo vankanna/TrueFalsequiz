@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrueFalsequiz.MainPage">
+
+    <Page.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="bgColor">#c0c0c0</Color>
+            <Color x:Key="fgColor">#606060</Color>
+
+            <Style x:Key="promptStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#32a881" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+        </ResourceDictionary>
+    </Page.Resources>
+
+
+
+    <StackLayout>
+        <Frame BackgroundColor="#32a881" Padding="12" CornerRadius="0">
+            <Label Text="True Or False" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label x:Name="prompt" Text="Sample Program" Style="{StaticResource promptStyle}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="result" Text="Sample Program" Style="{StaticResource promptStyle}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+
+        <Grid 
+            ColumnDefinitions="50*, 50*"
+            ColumnSpacing="8" 
+            HorizontalOptions="FillAndExpand">
+            <Button Text="True" Grid.Column="0" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
+            <Button Text="False" Grid.Column="1" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
+        </Grid>
+    </StackLayout>
+    
+
+</ContentPage>
