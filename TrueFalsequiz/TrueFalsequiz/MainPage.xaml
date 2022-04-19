@@ -28,14 +28,13 @@
             <Label Text="True Or False" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label x:Name="prompt" Text="Sample Program" Style="{StaticResource promptStyle}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Label x:Name="result" Text="Sample Program" Style="{StaticResource promptStyle}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
         <Grid 
             ColumnDefinitions="50*, 50*"
             ColumnSpacing="8" 
             HorizontalOptions="FillAndExpand">
-            <Button Text="True" Grid.Column="0" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
-            <Button Text="False" Grid.Column="1" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
+            <Button x:Name="btn1" Text="True" Grid.Column="0" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
+            <Button x:Name="btn2" Text="False" Grid.Column="1" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
         </Grid>
     </StackLayout>
     

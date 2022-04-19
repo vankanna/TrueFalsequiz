@@ -30,26 +30,28 @@ namespace TrueFalsequiz
 
         async void OnButtonClicked(object sender, EventArgs args)
         {
-
-            if (((Button)sender).Text == "True" && questions[counter].answer == true)
+            if (counter < questions.Count )
             {
-                results += 1;
-                result.Text = results.ToString();
+                if (((Button)sender).Text == "True" && questions[counter].answer == true)
+                {
+                    results += 1;
+                }
+                else if (((Button)sender).Text == "False" && questions[counter].answer == false)
+                {
+                    results += 1;
+
+                }
             }
-            else if (((Button)sender).Text == "False" && questions[counter].answer == false)
-            {
-                results += 1;
-                result.Text = results.ToString();
+            counter++;
 
-            }
-
-            if (counter >= questions.Count - 1)
+            if (counter >= questions.Count)
             {
+                btn1.IsEnabled = false;
+                btn2.IsEnabled = false;
                 prompt.Text = "Your got " + results + "/5 correct!";
             } else
             {
 
-                counter++;
                 prompt.Text = questions[counter].question;
 
             }
