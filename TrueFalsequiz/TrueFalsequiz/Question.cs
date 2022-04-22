@@ -8,10 +8,12 @@ namespace TrueFalsequiz
     {
         public string question { get; set; }
         public bool answer { get; set; }
-        public Question(string question, bool answer)
+        public string imgPath { get; set; }
+        public Question(string question, bool answer, string imgPath)
         {
             this.question = question;
             this.answer = answer;
+            this.imgPath = imgPath;
         }
 
     }

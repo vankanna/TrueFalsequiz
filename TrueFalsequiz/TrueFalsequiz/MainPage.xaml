@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TrueFalsequiz.MainPage">
+             x:Class="TrueFalsequiz.MainPage" xmlns:local="clr-namespace:TrueFalsequiz">
 
-    <Page.Resources>
+        <Page.Resources>
         <ResourceDictionary>
 
             <Color x:Key="bgColor">#c0c0c0</Color>
@@ -27,15 +27,16 @@
         <Frame BackgroundColor="#32a881" Padding="12" CornerRadius="0">
             <Label Text="True Or False" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
+        <local:SwipeContainer Swipe="OnSwiped" 
+         HorizontalOptions="Center" 
+         VerticalOptions="CenterAndExpand">
+            <Image x:Name="img" Source="" Aspect="AspectFit"
+            HeightRequest="{OnPlatform iOS=300, Android=250}"
+            HorizontalOptions="Center" />
+        </local:SwipeContainer>
+
         <Label x:Name="prompt" Text="Sample Program" Style="{StaticResource promptStyle}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
 
-        <Grid 
-            ColumnDefinitions="50*, 50*"
-            ColumnSpacing="8" 
-            HorizontalOptions="FillAndExpand">
-            <Button x:Name="btn1" Text="True" Grid.Column="0" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
-            <Button x:Name="btn2" Text="False" Grid.Column="1" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked"/>
-        </Grid>
     </StackLayout>
     
 

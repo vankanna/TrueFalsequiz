@@ -19,24 +19,28 @@ namespace TrueFalsequiz
         public MainPage()
         {
             InitializeComponent();
-            questions.Add(new Question("Apples are a fruit.", true));
-            questions.Add(new Question("The sun is a star.", true));
-            questions.Add(new Question("True is equal to False.", false));
-            questions.Add(new Question("Water freezes at 54.3 degrees fahrenheit.", false));;
-            questions.Add(new Question("South Korea is a peninsula.", true));
+            questions.Add(new Question("Apples are a fruit.", true, "apple.jpg")) ;
+            questions.Add(new Question("The sun is a star.", true, "sun.jpg"));
+            questions.Add(new Question("True is equal to False.", false, "truefalse.jpg"));
+            questions.Add(new Question("Water freezes at 54.3 degrees fahrenheit.", false, "ice.jpg"));;
+            questions.Add(new Question("South Korea is a peninsula.", true, "korea.jpg"));
             prompt.Text = questions[counter].question;
+            img.Source = questions[counter].imgPath;
+
 
         }
 
-        async void OnButtonClicked(object sender, EventArgs args)
+
+        async void OnSwiped(object sender, SwipedEventArgs e)
         {
-            if (counter < questions.Count )
+            if (counter < questions.Count)
             {
-                if (((Button)sender).Text == "True" && questions[counter].answer == true)
+                if (e.Direction == SwipeDirection.Right && questions[counter].answer == true)
                 {
                     results += 1;
+
                 }
-                else if (((Button)sender).Text == "False" && questions[counter].answer == false)
+                else if (e.Direction == SwipeDirection.Left && questions[counter].answer == false)
                 {
                     results += 1;
 
@@ -46,32 +50,16 @@ namespace TrueFalsequiz
 
             if (counter >= questions.Count)
             {
-                btn1.IsEnabled = false;
-                btn2.IsEnabled = false;
+            
                 prompt.Text = "Your got " + results + "/5 correct!";
-            } else
+            }
+            else
             {
+                img.Source = questions[counter].imgPath;
 
                 prompt.Text = questions[counter].question;
 
             }
-
-
-
-
-            // Create a True/False Quiz App.  This has one page with a Label for the question and two Buttons: True and False.
-
-            //After five questions, the Buttons should cease to be displayed and results should be displayed in the question label.
-
-            //Make this app look as professional as possible.
-
-            //Use Shared Resources, etc...  This will require that you read online documentation, etc...
-
-            //Additionally, provide a wireframe for the App.
-
-
-
-
 
         }
     }
